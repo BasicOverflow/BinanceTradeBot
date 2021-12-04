@@ -1,0 +1,1 @@
+### At one point I added support here for the bot to notify me of market entries/exits via SMS

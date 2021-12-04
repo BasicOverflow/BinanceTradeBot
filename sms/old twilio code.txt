@@ -1,0 +1,32 @@
+try:
+    from twilio.rest import Client
+    from flask import Flask,request,redirect
+    from twilio.twiml.messaging_response import MessagingResponse
+except:
+    import os,time
+    os.system("pip3 install twilio")
+    time.sleep(2)
+    from twilio.rest import Client
+    from flask import Flask,request,redirect
+    from twilio.twiml.messaging_response import MessagingResponse
+
+account_sid = ""
+auth_token = ""
+my_phone = ""
+twilio_number = ""
+
+client = Client(account_sid,auth_token)
+
+def send(message):
+    message = client.messages.create(to=my_phone,
+                                    from_=twilio_number,
+                                    body=str(message))
+
+
+
+  
+
+if __name__ == "__main__":
+    msg = "I just sent a text in python!"
+    send(msg)
+    print(msg)
